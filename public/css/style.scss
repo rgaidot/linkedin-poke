@@ -1,0 +1,51 @@
+body {
+  font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+  padding-top: 50px;
+}
+
+h2, h3 {
+  .action {
+    padding-left: 15px;
+    .btn.btn-fab.btn-fab-mini {
+      width: 30px;
+      height: 30px;
+      padding: 7px;
+    }
+  }
+}
+
+.true, .false {
+  font-size: 11px;
+  padding: .2em .6em .3em;
+  color: #fff;
+}
+
+.true {
+  background-color: #03a9f4;
+}
+
+.false {
+  background-color: #ff5722;
+}
+
+.well {
+  overflow: hidden;
+  .remove-padding {
+    padding: 0px;
+  }
+}
+
+.grey {
+  color: grey;
+}
+
+table {
+  .btn-xs {
+    padding: 0px;
+    margin: 0px;
+    font-size: 22px;
+  }
+  form, .actions {
+    float: right;
+  }
+}

@@ -1,0 +1,7 @@
+extends ../layout
+
+block content
+  h2= title
+  div.well
+    form.form-horizontal(name="user_create",method="post",action="/users/create")
+      include _form.jade

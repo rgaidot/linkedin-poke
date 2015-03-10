@@ -1,0 +1,4 @@
+node_modules/
+public/components
+public/img
+.sass-cache

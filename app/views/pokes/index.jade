@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+  h2= title
+  div.well
+    table.table
+      thead
+        tr
+          th Name
+          th Active
+          th User
+          th
+      tbody
+        - each poke in pokes
+          tr
+            td
+              a(href="/users/#{poke.user._id}/pokes/#{poke._id}")= poke.name
+            td
+              span(class=poke.active)= poke.active
+            td
+              a(href="/users/#{poke.user._id}")= poke.user.name
+            td.actions
+              form(method="post" action="/pokes/#{poke._id}")
+                input(type="hidden", name="_method", value="DELETE")
+                button.btn.btn-xs.btn-danger.btn-flat(type='submit')
+                  i.grey.mdi-action-delete
+              a.btn.btn-xs.btn-flat.btn-default(href="/users/#{poke.user._id}/pokes/#{poke._id}")
+                i.grey.mdi-content-create

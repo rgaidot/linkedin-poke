@@ -1,0 +1,21 @@
+fieldset
+  .form-group
+    label.col-lg-2.control-label(for='name') Name
+    .col-lg-10
+      input#name.form-control(type="text", placeholder="name", name="name", value=user.name)
+  .form-group
+    label.col-lg-2.control-label(for='email') email
+    .col-lg-10
+      input#email.form-control(type="text", placeholder="email", name="email", value=user.email)
+  .form-group
+    label.col-lg-2.control-label(for='password') Password
+    .col-lg-10
+      input#password.form-control(type="password", placeholder="password", name="password")
+  .form-group
+    label.col-lg-2.control-label(for='url_linkedin') Linkedin URL
+    .col-lg-10
+      input#url_linkedin.form-control(type="text", placeholder="linkedin url", name="url_linkedin", value=user.url_linkedin)
+  .form-group
+    .col-lg-10.col-lg-offset-2
+      a.btn.btn-default(href='/users') cancel
+      button.btn.btn-primary(type='submit') submit

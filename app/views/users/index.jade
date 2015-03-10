@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+  h2
+    span=title
+    span.action
+      a.btn.btn-default.btn-xs.btn-fab.btn-fab-mini.btn-raised.mdi-content-add(href="/users/new")
+  div.well
+    table.table
+      thead
+        tr
+          th Name
+          th Email
+          th Linekdin URL
+          th Pokes
+          th
+      tbody
+        - each user in users
+          tr
+            td
+              a(href="/users/#{user._id}")= user.name
+            td
+              a(href="mailto:#{user.email}")= user.email
+            td
+               a(href=user.url_linkedin)= user.url_linkedin
+            td.text-center
+              a(href="/users/#{user._id}")
+                span.label.label-primary= user.pokes.length
+            td.actions
+              form(method="post" action="/users/#{user.id}")
+                input(type="hidden", name="_method", value="DELETE")
+                button.btn.btn-xs.btn-danger.btn-flat(type='submit')
+                  i.grey.mdi-action-delete

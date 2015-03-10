@@ -1,0 +1,34 @@
+extends ../layout
+
+block content
+  h2= title
+  div.well
+    form.form-horizontal(name="user_update",method="post",action="/users/#{user._id}",enctype="application/x-www-form-urlencoded")
+      input(type='hidden', name='_method', value='PUT')
+      include _form.jade
+
+  div.well
+    h3
+      span Poke list
+      span.action
+        a.btn.btn-default.btn-xs.btn-fab.btn-fab-mini.btn-raised.mdi-content-add(href="/users/#{user._id}/pokes/new")
+    table.table
+      thead
+        tr
+          th Name
+          th Active
+          th
+      tbody
+        - each poke in user.pokes
+          tr
+            td
+              a(href="/users/#{user._id}/pokes/#{poke._id}")= poke.name
+            td
+              span(class=poke.active)= poke.active
+            td.actions
+              form(method="post" action="/pokes/#{poke._id}")
+                input(type="hidden", name="_method", value="DELETE")
+                button.btn.btn-xs.btn-flat.btn-danger(type='submit')
+                  i.grey.mdi-action-delete
+              a.btn.btn-xs.btn-flat.btn-default(href="/users/#{user._id}/pokes/#{poke._id}")
+                i.grey.mdi-content-create

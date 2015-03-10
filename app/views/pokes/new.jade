@@ -1,0 +1,8 @@
+extends ../layout
+
+block content
+  h2= title
+  div.well
+    form.form-horizontal(name="user_create",method="post",action="/pokes/create")
+      input(type='hidden', name='user_id', value=user._id)
+      include _form.jade

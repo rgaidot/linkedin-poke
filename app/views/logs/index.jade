@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+  h2=title
+  div.well
+    table.table
+      thead
+        tr
+          th Visited at
+          th Name
+          th Matched Poke
+      tbody
+        - each log in logs
+          tr
+            td= log.visited_at
+            td
+              a(href=log.linkedin_url)= log.linkedin_name
+            td
+              a(href='#')= log.poke.name
