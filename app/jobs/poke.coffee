@@ -11,7 +11,7 @@ poke = {
   run: (rules, callback) ->
     phantom.create { parameters: { 'ignore-ssl-errors': 'yes' } }, (ph) ->
       ph.createPage (page) ->
-        url = "https://www.linkedin.com/vsearch/p?keywords=#{rules.keywords}&f_G=#{rules.location_params}&f_I=#{rules.industry_params}&f_N=#{rules.position_params}"
+        url = "https://www.linkedin.com/vsearch/p?keywords=#{rules.keywords}&f_G=#{rules.location_params}&f_I=#{rules.industry_params}&f_N=#{rules.relationship_params}&trk=vsrp_people_sel"
         page.set 'settings',
           userAgent: 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
           loadImages: false

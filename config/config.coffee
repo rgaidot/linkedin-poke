@@ -22,6 +22,6 @@ config =
     app:
       name: 'linkedin-poke'
     port: process.env.PORT
-    db: process.env.MONGO_URL
+    db: process.env.MONGOLAB_URI
 
 module.exports = config[env]

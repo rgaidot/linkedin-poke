@@ -3,6 +3,9 @@ router = express.Router()
 mongoose = require 'mongoose'
 User  = mongoose.model 'User'
 Poke  = mongoose.model 'Poke'
+industries = require '../models/linkedin/industries'
+locations = require '../models/linkedin/locations'
+relationships = require '../models/linkedin/relationships'
 
 module.exports = (app) ->
   app.use '/', router
@@ -21,6 +24,9 @@ router.get '/users/:id/pokes/new', (req, res, next) ->
       title: 'Add poke'
       user: user
       poke: new Poke()
+      industries: industries
+      locations: locations
+      relationships: relationships
 
 router.get '/users/:user_id/pokes/:id', (req, res, next) ->
   Poke.findById(req.params.id).populate('user').exec (err, poke) ->
@@ -29,6 +35,9 @@ router.get '/users/:user_id/pokes/:id', (req, res, next) ->
       title: "Edit poke"
       poke: poke
       user: poke.user
+      industries: industries
+      locations: locations
+      relationships: relationships
 
 router.post '/pokes/create', (req, res, next) ->
   User.findById req.body.user_id, (err, user) ->
@@ -39,7 +48,6 @@ router.post '/pokes/create', (req, res, next) ->
       location_params: req.body.location_params,
       industry_params: req.body.industry_params,
       relationship_params: req.body.relationship_params,
-      position_params: req.body.position_params,
       active: (req.body.active isnt undefined ? true : false),
       user: req.body.user_id).save (err, poke, count) ->
         return next(err) if err

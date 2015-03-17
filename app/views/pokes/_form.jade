@@ -17,17 +17,22 @@ fieldset
   .form-group
     label.col-lg-2.control-label(for='location_params') Locations
     .col-lg-10
-      input#location_params.form-control(type="text", placeholder="fr", name="location_params", value=poke.location_params)
+      select#location_params.form-control(name="location_params")
+        each val, index in locations
+          option(selected=poke.location_params == index, value=index) #{val}
   .form-group
     label.col-lg-2.control-label(for='industry_params') Industries
     .col-lg-10
-      input#industry_params.form-control(type="text", placeholder="Internet", name="industry_params", value=poke.industry_params)
+      select#industry_params.form-control(name="industry_params")
+        each val, index in industries
+          option(selected=poke.industry_params == index, value=index) #{val}
   .form-group
-    label.col-lg-2.control-label(for='position_params') Positions
+    label.col-lg-2.control-label(for='relationship_params') Positions
     .col-lg-10
-      input#position_params.form-control(type="text", placeholder="Director", name="position_params", value=poke.position_params)
+      select#relationship_params.form-control(name="relationship_params")
+        each val, index in relationships
+          option(selected=poke.relationship_params == index, value=index) #{val}
   .form-group
     .col-lg-10.col-lg-offset-2
       a.btn.btn-default(href="/users/#{user._id}") cancel
       button.btn.btn-primary(type='submit') submit
-

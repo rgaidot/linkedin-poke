@@ -1,0 +1,12 @@
+module.exports = locations =
+  'fr%3A5227': 'Paris'
+  'fr%3A5205': 'Lille'
+  'fr%3A5210': 'Lyon'
+  'fr%3A5211': 'Marseille'
+  'fr%3A5220': 'Nantes'
+  'fr%3A5246': 'Strasbourg'
+  'fr%3A5249': 'Toulouse'
+  'fr%3A5174': 'Bordeaux'
+  'fr%3A5237': 'Rennes'
+  'gb%3A4573': 'London'
+  'gb%3A4556': 'Cardiff'
